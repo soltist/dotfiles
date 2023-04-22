@@ -2,6 +2,9 @@
 
 echo "Setting up your Mac..."
 
+# Get xcode first
+sudo xcode-select --install
+
 # Check for Oh My Zsh and install if we don't have it
 if test ! $(which omz); then
 	/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
@@ -14,6 +17,9 @@ if test ! $(which brew); then
 	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>$HOME/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+# Install kitty terminal
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 # rm -rf $HOME/.zshrc
