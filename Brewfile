@@ -40,6 +40,7 @@ brew "youtube-dl"
 brew "zlib"
 brew "zsh"
 brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 brew "jesseduffield/lazygit/lazygit"
 brew "sqitchers/sqitch/sqitch", args: ["with-postgres-support", "with-sqlite-support"]
 cask "font-hack-nerd-font"
