@@ -85,6 +85,7 @@ require("lspconfig").pyright.setup({
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         typeCheckingMode = "off",
+        diagnosticSeverityOverrides = { "none" },
       },
     },
   },
@@ -99,12 +100,12 @@ require("lspconfig").yamlls.setup({
   },
 })
 
-require("tokyonight").setup({
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  transparent = true, -- Enable this to disable setting the background color
-  styles = {
-    sidebars = "transparent",
-    floats = "transparent",
-  },
-})
+-- require("tokyonight").setup({
+--   -- your configuration comes here
+--   -- or leave it empty to use the default settings
+--   transparent = true, -- Enable this to disable setting the background color
+--   styles = {
+--     sidebars = "transparent",
+--     floats = "transparent",
+--   },
+-- })
