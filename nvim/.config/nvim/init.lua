@@ -114,19 +114,20 @@ require('lazy').setup({
   -- Themes
   {
     'folke/tokyonight.nvim',
-    priority = 1000,
+    -- priority = 1000,
     opts = {
       transparent = true,
     },
-    -- config = function()
-    --   vim.cmd.colorscheme 'tokyonight'
-    -- end,
   },
   {
     'rose-pine/neovim',
-    -- opts = {
-    --   disable_background = true,
-    -- },
+    name = 'rose-pine',
+    priority = 1000,
+    opts = {
+      disable_background = true,
+      -- dim_nc_background = true,
+      -- disable_float_background = true,
+    },
   },
   {
     'ellisonleao/gruvbox.nvim',
@@ -213,7 +214,7 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set colorscheme
-vim.cmd.colorscheme 'tokyonight'
+vim.cmd.colorscheme 'rose-pine'
 
 -- Set highlight on search
 vim.o.hlsearch = true
