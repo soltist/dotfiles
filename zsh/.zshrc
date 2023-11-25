@@ -91,8 +91,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # fzf configurations
+plugins=(fzf git brew docker docker-compose npm)
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export FZF_DEFAULT_COMMAND='fd . $HOME'
+export FZF_DEFAULT_COMMAND='fzf . $HOME'
 
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"
@@ -103,8 +104,7 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 export FZF_CTRL_T_COMMAND="fd . $HOME/Vindex"
-export FZF_ALT_C_COMMAND="fd"
-plugins=(fzf git brew docker docker-compose npm)
+# export FZF_ALT_C_COMMAND="fd ."
 
 source $ZSH/oh-my-zsh.sh
 
