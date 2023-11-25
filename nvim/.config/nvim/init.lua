@@ -580,6 +580,7 @@ local handlers = {
     require('lspconfig').pyright.setup {
       before_init = function(_, config)
         config.settings.python.pythonPath = get_python_path(config.root_dir)
+        -- config.settings.python.pythonPath = config.root_dir.join('venv', 'bin', 'python')
       end,
       on_attach = on_attach,
       settings = {
@@ -590,7 +591,7 @@ local handlers = {
           analysis = {
             autoSearchPaths = true,
             useLibraryCodeForTypes = true,
-            typeCheckingMode = 'off',
+            -- typeCheckingMode = 'off',
             diagnosticSeverityOverrides = { 'none' },
           },
         },
