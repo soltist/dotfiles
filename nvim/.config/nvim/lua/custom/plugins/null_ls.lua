@@ -1,6 +1,6 @@
 return {
-  'jose-elias-alvarez/null-ls.nvim',
-  enabled = false,
+  'nvimtools/none-ls.nvim',
+  -- enabled = false,
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = { 'mason.nvim' },
   opts = function()
@@ -12,6 +12,7 @@ return {
         nls.builtins.diagnostics.fish,
         nls.builtins.formatting.stylua,
         nls.builtins.formatting.shfmt,
+        nls.builtins.formatting.prettier,
         nls.builtins.diagnostics.mypy.with { only_local = '.venv/bin', timeout = 5000 },
       },
     }
