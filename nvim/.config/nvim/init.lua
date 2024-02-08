@@ -72,7 +72,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = { window = { border = "single" } } },
+  { 'folke/which-key.nvim',  opts = { window = { border = 'single' } } },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -128,8 +128,8 @@ require('lazy').setup({
       -- disable_background = true,
       styles = {
         bold = false,
-        transparency = true
-      }
+        transparency = true,
+      },
     },
   },
   {
@@ -167,7 +167,7 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
-    main = "ibl",
+    main = 'ibl',
     opts = { scope = { show_start = false, show_end = false } },
   },
 
@@ -535,14 +535,14 @@ local servers = {
 
 -- Add border on hover and signature help
 local border = {
-  { "🭽", "FloatBorder" },
-  { "▔", "FloatBorder" },
-  { "🭾", "FloatBorder" },
-  { "▕", "FloatBorder" },
-  { "🭿", "FloatBorder" },
-  { "▁", "FloatBorder" },
-  { "🭼", "FloatBorder" },
-  { "▏", "FloatBorder" },
+  { '🭽', 'FloatBorder' },
+  { '▔', 'FloatBorder' },
+  { '🭾', 'FloatBorder' },
+  { '▕', 'FloatBorder' },
+  { '🭿', 'FloatBorder' },
+  { '▁', 'FloatBorder' },
+  { '🭼', 'FloatBorder' },
+  { '▏', 'FloatBorder' },
 }
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
