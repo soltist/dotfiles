@@ -64,6 +64,7 @@ require('lazy').setup({
 
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
@@ -71,7 +72,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim',  opts = { window = { border = "single" } } },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -124,9 +125,11 @@ require('lazy').setup({
     name = 'rose-pine',
     priority = 1000,
     opts = {
-      disable_background = true,
-      -- dim_nc_background = true,
-      -- disable_float_background = true,
+      -- disable_background = true,
+      styles = {
+        bold = false,
+        transparency = true
+      }
     },
   },
   {
@@ -140,10 +143,19 @@ require('lazy').setup({
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
+    -- event = 'ColorScheme',
+    -- config = function()
+    --   require('lualine').setup({
+    --     options = {
+    --       --- @usage 'rose-pine' | 'rose-pine-alt'
+    --       theme = 'rose-pine'
+    --     }
+    --   })
+    -- end,
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
@@ -155,10 +167,8 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
-    opts = {
-      -- char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    main = "ibl",
+    opts = { scope = { show_start = false, show_end = false } },
   },
 
   -- "gc" to comment visual regions/lines
@@ -522,6 +532,24 @@ local servers = {
   },
 }
 
+-- Add border on hover and signature help
+local border = {
+  { "🭽", "FloatBorder" },
+  { "▔", "FloatBorder" },
+  { "🭾", "FloatBorder" },
+  { "▕", "FloatBorder" },
+  { "🭿", "FloatBorder" },
+  { "▁", "FloatBorder" },
+  { "🭼", "FloatBorder" },
+  { "▏", "FloatBorder" },
+}
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
 require('lspconfig').yamlls.setup {
   on_attach = on_attach,
   settings = {
@@ -625,6 +653,7 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+  window = { completion = cmp.config.window.bordered(), documentation = cmp.config.window.bordered() },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -657,6 +686,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'path' },
   },
 }
 
