@@ -1,6 +1,7 @@
 .DS_Store
 .idea
 .vs_code
+__pycache__
 pyrightconfig.json
 ~/Applications
 ~/Documents
