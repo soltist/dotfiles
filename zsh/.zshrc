@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=/opt/homebrew/opt/grep/libexec/gnubin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/opt/grep/libexec/gnubin:$HOME/bin:/usr/local/bin:$PATH
 source $(brew --prefix)/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-autosuggestions
