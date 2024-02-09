@@ -1,8 +1,16 @@
+# MacOS specific
 .DS_Store
+
+# editors
 .idea
 .vs_code
+
+# Python
 __pycache__
+.venv
 pyrightconfig.json
+
+# Other
 ~/Applications
 ~/Documents
 ~/Downloads
@@ -11,4 +19,3 @@ pyrightconfig.json
 ~/Music
 ~/Pictures
 ~/Public
-
