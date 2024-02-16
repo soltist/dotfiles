@@ -6,8 +6,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=/opt/homebrew/bin:/opt/homebrew/opt/grep/libexec/gnubin:$HOME/bin:/usr/local/bin:$PATH
-source $(brew --prefix)/share/antigen/antigen.zsh
+if [[ $OSTYPE == "linux-gnu"* ]]; then
+  export PATH=$PATH:$HOME/bin:/usr/local/bin
+  source "/usr/share/zsh-antigen/antigen.zsh"
+elif [[ $OSTYPE == "darwin"* ]]; then
+  export PATH=$PATH/opt/homebrew/bin:/opt/homebrew/opt/grep/libexec/gnubin:$HOME/bin:/usr/local/bin
+  source $(brew --prefix)/share/antigen/antigen.zsh
+fi
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
@@ -35,7 +40,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # fzf configurations
-plugins=(fzf fzf-tab git brew docker docker-compose npm)
+plugins=(fzf git brew docker docker-compose npm)
 
 # fzf setup
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
