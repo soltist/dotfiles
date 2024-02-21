@@ -10,7 +10,7 @@ if [[ $OSTYPE == "linux-gnu"* ]]; then
   export PATH=$PATH:$HOME/bin:/usr/local/bin
   source "/usr/share/zsh-antigen/antigen.zsh"
 elif [[ $OSTYPE == "darwin"* ]]; then
-  export PATH=$PATH/opt/homebrew/bin:/opt/homebrew/opt/grep/libexec/gnubin:$HOME/bin:/usr/local/bin
+  export PATH=$PATH:/opt/homebrew/bin:/opt/homebrew/opt/grep/libexec/gnubin:$HOME/bin:/usr/local/bin
   source $(brew --prefix)/share/antigen/antigen.zsh
 fi
 antigen use oh-my-zsh
