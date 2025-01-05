@@ -25,6 +25,19 @@ antigen theme romkatv/powerlevel10k
 
 antigen apply
 
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# switch group using `<` and `>`
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -40,21 +53,23 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # fzf configurations
-plugins=(fzf git brew docker docker-compose npm)
+plugins=(fzf git)
 
 # fzf setup
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND='fd . --type f --hidden'
 export FZF_COMPLETION_TRIGGER='**'
-#
+
 _fzf_compgen_path() {
   fd --type f --hidden --follow --exclude ".git" . "$1"
 }
-#
+
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$HOME/Vindex" "$HOME/personal"
 }
+# export FZF_ALT_C_COMMAND = '_fzf_compgen_dir'
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -74,3 +89,9 @@ export PATH="$HOME/.local/bin:$PATH"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tsoltis/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tsoltis/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/tsoltis/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tsoltis/google-cloud-sdk/completion.zsh.inc'; fi

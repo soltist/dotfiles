@@ -449,7 +449,11 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
+  -- if client.name == 'ruff' then
+  --   -- Disable hover in favor of Pyright
+  --   client.server_capabilities.hoverProvider = false
+  -- end
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -515,10 +519,11 @@ local servers = {
         useLibraryCodeForTypes = true,
         typeCheckingMode = 'off',
         diagnosticSeverityOverrides = { 'none' },
+        ignore = { '*' },
       },
     },
   },
-  ruff_lsp = {},
+  ruff = {},
   rust_analyzer = {},
   yamlls = {
     yaml = {
@@ -618,10 +623,11 @@ local handlers = {
         },
         python = {
           analysis = {
-            autoSearchPaths = true,
-            useLibraryCodeForTypes = true,
-            -- typeCheckingMode = 'off',
-            diagnosticSeverityOverrides = { 'none' },
+            -- autoSearchPaths = true,
+            -- useLibraryCodeForTypes = true,
+            -- -- typeCheckingMode = 'off',
+            -- diagnosticSeverityOverrides = { 'none' },
+            ignore = { '*' },
           },
         },
       },
