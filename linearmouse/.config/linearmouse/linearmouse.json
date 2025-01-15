@@ -1,34 +1,34 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.8.0",
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
   "schemes" : [
     {
+      "scrolling" : {
+        "acceleration" : 1,
+        "speed" : {
+          "vertical" : 0
+        },
+        "distance" : {
+          "vertical" : "auto"
+        }
+      },
       "pointer" : {
         "disableAcceleration" : true
       },
       "if" : {
         "device" : {
           "productName" : "Razer DeathAdder Elite",
-          "productID" : "0x5c",
           "category" : "mouse",
-          "vendorID" : "0x1532"
-        }
-      },
-      "scrolling" : {
-        "acceleration" : 1,
-        "distance" : {
-          "vertical" : "auto"
-        },
-        "speed" : {
-          "vertical" : 0
+          "vendorID" : "0x1532",
+          "productID" : "0x5c"
         }
       }
     },
     {
       "if" : {
         "device" : {
-          "productName" : "Razer DeathAdder",
           "productID" : "0x16",
           "category" : "mouse",
+          "productName" : "Razer DeathAdder",
           "vendorID" : "0x1532"
         }
       },
@@ -44,33 +44,36 @@
       },
       "if" : {
         "device" : {
-          "productName" : "USB Receiver",
-          "productID" : "0xc539",
           "category" : "mouse",
-          "vendorID" : "0x46d"
+          "vendorID" : "0x46d",
+          "productName" : "USB Receiver",
+          "productID" : "0xc539"
         }
       },
       "scrolling" : {
-        "acceleration" : {
-          "vertical" : 1
+        "reverse" : {
+          "vertical" : true
         },
         "speed" : {
           "vertical" : 12
+        },
+        "acceleration" : {
+          "vertical" : 1
         }
       }
     },
     {
-      "if" : {
-        "device" : {
-          "productName" : "Apple Internal Keyboard \/ Trackpad",
-          "productID" : "0x341",
-          "category" : "trackpad",
-          "vendorID" : "0x5ac"
-        }
-      },
       "scrolling" : {
         "speed" : {
           "vertical" : 0
+        }
+      },
+      "if" : {
+        "device" : {
+          "vendorID" : "0x5ac",
+          "category" : "trackpad",
+          "productID" : "0x341",
+          "productName" : "Apple Internal Keyboard \/ Trackpad"
         }
       }
     }
