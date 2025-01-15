@@ -507,7 +507,6 @@ end
 local servers = {
   -- clangd = {},
   -- gopls = {},
-  tsserver = {},
   pyright = {
     pyright = {
       disableOrganizeImports = true,
@@ -523,7 +522,6 @@ local servers = {
       },
     },
   },
-  ruff = {},
   rust_analyzer = {},
   yamlls = {
     yaml = {
