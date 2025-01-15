@@ -621,26 +621,12 @@ local handlers = {
         },
         python = {
           analysis = {
-            -- autoSearchPaths = true,
-            -- useLibraryCodeForTypes = true,
-            -- -- typeCheckingMode = 'off',
-            -- diagnosticSeverityOverrides = { 'none' },
             ignore = { '*' },
           },
         },
       },
     }
   end,
-  -- ["ruff_lsp"] = function()
-  --   require('lspconfig')["ruff_lsp"].setup {
-  --     capabilities = capabilities,
-  --     settings = servers["ruff_lsp"],
-  --     on_attach = require("utils").on_attach(function(client, _)
-  --       -- Disable hover in favor of Pyright
-  --       client.server_capabilities.hoverProvider = false
-  --     end)
-  --   }
-  -- end
 }
 
 mason_lspconfig.setup_handlers(handlers)
