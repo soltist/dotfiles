@@ -13,7 +13,7 @@ return {
         nls.builtins.formatting.stylua,
         nls.builtins.formatting.shfmt,
         nls.builtins.formatting.prettier,
-        nls.builtins.diagnostics.mypy.with { only_local = '.venv/bin', timeout = 5000 },
+        nls.builtins.diagnostics.mypy.with { prefer_local = '.venv/bin', temp_dir = '/tmp' },
       },
     }
   end,
