@@ -602,7 +602,7 @@ require('lazy').setup {
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'enter',
+        preset = 'default',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -611,7 +611,7 @@ require('lazy').setup {
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono',
+        nerd_font_variant = 'normal',
       },
 
       completion = {
@@ -622,24 +622,24 @@ require('lazy').setup {
         menu = {
           draw = {
             components = {
-              kind_icon = {
-                -- text = function(ctx)
-                --   local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
-                --   return kind_icon
-                -- end,
-                -- -- (optional) use highlights from mini.icons
-                -- highlight = function(ctx)
-                --   local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
-                --   return hl
-                -- end,
-              },
-              kind = {
-                -- (optional) use highlights from mini.icons
-                -- highlight = function(ctx)
-                --   local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
-                --   return hl
-                -- end,
-              },
+              -- kind_icon = {
+              --   text = function(ctx)
+              --     local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+              --     return kind_icon
+              --   end,
+              --   -- (optional) use highlights from mini.icons
+              --   highlight = function(ctx)
+              --     local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+              --     return hl
+              --   end,
+              -- },
+              -- kind = {
+              --   -- (optional) use highlights from mini.icons
+              --   highlight = function(ctx)
+              --     local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+              --     return hl
+              --   end,
+              -- },
             },
           },
         },
@@ -662,7 +662,7 @@ require('lazy').setup {
           copilot = {
             name = 'copilot',
             module = 'blink-cmp-copilot',
-            score_offset = 100,
+            score_offset = 1,
             async = true,
           },
           lazydev = { module = 'lazydev.integrations.blink' },
@@ -851,3 +851,7 @@ vim.keymap.set('n', '<leader>-', '<C-W>s', { desc = 'Split window below', remap 
 vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split window right', remap = true })
 
 vim.o.winborder = 'single'
+
+-- Open splits on the right and bottom
+vim.o.splitright = true
+vim.o.splitbelow = true

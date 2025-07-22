@@ -1,6 +1,12 @@
 font-family = "JetBrains Mono"
-
+font-feature = "-calt"
+#font-feature = "-liga"
+#font-feature = "-dlig"
+theme=rose-pine
 background = #000000
+background-image="~/Documents/nasa_nebula.png"
+background-image-fit = cover
+background-image-opacity = 0.05
 
 auto-update-channel = tip
 auto-update = check

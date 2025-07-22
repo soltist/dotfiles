@@ -10,7 +10,7 @@ if [[ $OSTYPE == "linux-gnu"* ]]; then
   export PATH=$PATH:$HOME/bin:/usr/local/bin
   source "/usr/share/zsh-antigen/antigen.zsh"
 elif [[ $OSTYPE == "darwin"* ]]; then
-  export PATH=$PATH:/opt/homebrew/bin:/opt/homebrew/opt/grep/libexec/gnubin:$HOME/bin:/usr/local/bin
+  export PATH=$PATH:/opt/homebrew/bin:/opt/homebrew/opt/grep/libexec/gnubin:$HOME/bin:/usr/local/bin:/usr/local/go/bin
   source $(brew --prefix)/share/antigen/antigen.zsh
 fi
 antigen use oh-my-zsh
@@ -53,7 +53,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # fzf configurations
-plugins=(fzf git)
+plugins=(fzf git poetry)
 
 # fzf setup
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
@@ -95,3 +95,7 @@ if [ -f '/Users/tsoltis/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tsoltis
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/tsoltis/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tsoltis/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
